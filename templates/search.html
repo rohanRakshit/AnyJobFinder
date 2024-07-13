@@ -1,0 +1,52 @@
+{% extends 'common.html' %}
+
+{% block head %}
+<title>Search Bar</title>
+<style>
+  .card{
+    background: linear-gradient( to right, grey, white);
+  }
+</style>
+{% endblock %}
+
+{% block body %}
+<br><br>
+<h3 class="mx-4">Your search results.... </h3>
+<br><br>
+
+<div class="container text-center">
+    {% if text|length < 1 %}
+        <h5>No search attempted</h5>
+    <p>Your entered data - '{{noinfo}}' does not match our details.</p>
+    <br><br>
+    <div class="row">
+          {% for i in data %}
+            <div class="col my-4 mx-4">
+                  <div class="card" style="width: 18rem; height: 100%" >
+                    <img src="/media/{{i.thumbnail}}" class="card-img-top" alt="...">
+                    <div class="card-body">
+                      <h5 class="card-title"><a href="/inner/{{i.id}}" style="color: purple">{{i.title}}</a></h5>
+                      <p class="card-text" align="justify">{{i.shortDesc}}</p>
+                      <a href="{{i.link}}" class="btn btn-primary" style="border-radius: 15px">Apply from here</a>
+                    </div>
+                  </div>
+            </div>
+        {% endfor %}
+          </div>
+    {% endif %}
+        <div class="row">
+          {% for i in text %}
+            <div class="col my-4 mx-4">
+                  <div class="card" style="width: 18rem; height: 100%">
+                    <img src="/media/{{i.thumbnail}}" class="card-img-top" alt="...">
+                    <div class="card-body">
+                      <h5 class="card-title"><a href="/inner/{{i.id}}" style="color: purple">{{i.title}}</a></h5>
+                      <p class="card-text" align="justify">{{i.shortDesc}}</p>
+                      <a href="{{i.link}}" class="btn btn-primary" style="border-radius: 15px">Apply from here</a>
+                    </div>
+                  </div>
+            </div>
+        {% endfor %}
+          </div>
+
+{% endblock %}

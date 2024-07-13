@@ -1,0 +1,22 @@
+{% extends 'common.html' %}
+<!-- {%load static%} -->
+	{% block head %}
+		<title>{{data.title}}</title>
+	{% endblock %}
+	{% block body %}
+		<div style="background-color:black">
+			<img src="/media/{{data.thumbnail}}" alt="Image not vailable" height="400px" style="width: 100%">
+		</div>
+		<br><br>
+		<div class="mx-4">
+			<h1 style="color:blue"><u>{{data.title}}</u></h1>
+			<br><br>
+			<p>{{data.Desc}}</p>
+		<br><br>
+	<a href = "{{data.link}}"><button type="button" class="btn btn-primary mx-5">Apply Now</button></button></a>
+		</div>
+	<br><br><br>
+			{% endblock %}
+
+{% block script %}
+{% endblock %}

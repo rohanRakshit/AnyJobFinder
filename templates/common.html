@@ -1,0 +1,60 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html>
+<head>
+	{% block head %}
+	{% endblock %}
+		    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+		    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+			<style>
+				nav{
+					background: linear-gradient(to right , brown , gold , blue)
+				}
+				a:hover{
+					box-shadow: inset 200px 0 0 0 cyan;
+					color: yellow;
+				}
+			</style>
+
+</head>
+<body>
+<nav class="navbar navbar-expand-lg bg-body-tertiary">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="/"><img src="{% static 'AFJ/job.jpg' %}" height="20px"></a>
+      <a class="navbar-brand" href="/"><font face="Gabriola" size=6 style="color: mediumblue"><b><i>Apply For Job</i></b></font></a>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <li class="nav-item">
+          <a class="nav-link" href="/about">About</a>
+        </li>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            Recomended
+          </a>
+          <ul class="dropdown-menu">
+            <li><a class="dropdown-item" href="/inner/7">Google</a></li>
+            <li><a class="dropdown-item" href="/inner/2">Microsoft</a></li>
+            <li><a class="dropdown-item" href="/inner/8">Apple</a></li>
+          </ul>
+        </li>
+      </ul>
+      <form method="GET" action="/search" class="d-flex">
+        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" name="find" id="find">
+        <button class="btn btn-outline-info" type="submit">Search</button>
+      </form>
+    </div>
+    </div>
+  </nav>
+
+{% block body %}
+
+{% endblock %}
+
+{% block script %}
+{% endblock %}
+</body>
+<footer>
+	<h5 style="background-color: orange" align="center">No Copyright claim @ 2023</h5>
+</footer>
+</html>

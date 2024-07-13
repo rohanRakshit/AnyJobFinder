@@ -1,0 +1,74 @@
+{% extends 'common.html' %}
+{% load static %}
+  {% block head %}
+    <title>List of Websites</title>
+    <style>
+
+        #txt{
+          font-weight: 700;
+          background-clip: text;
+          -webkit-background-clip: text;
+          color: transparent;
+          background-image: url({% static 'AFJ/txt.jpg' %});
+          align-content: top;
+
+        }
+
+        .imx {
+            height: 400px;
+            display: block;            
+            position: relative;
+            z-index : 2;
+            align-self: center;
+            margin-left: 30%
+        }
+
+        .marquee-text {
+            position: absolute;
+            left : 0;
+            width: 100%;            
+            z-index : 1;
+        }
+
+        .container {
+            text-align: center;
+        }
+
+        .card{
+          box-shadow: 0 5px 15px grey;
+          border-radius: 10px;
+          background-color: #f0f0f0;
+          background: linear-gradient( to right, grey, white);
+    </style>
+  {% endblock %}
+{% block body %}
+  
+  <div class="container" style="background: linear-gradient(to left , #041945 , #240303); max-width : 100%">
+    <marquee class="marquee-text">
+      <p id="txt">
+        <strong style=" font-size : 50px";>
+          <br><br>Welcome!</strong><br><br>
+          <font  size="36px"><i><strong >Find the most suitable<br> job for yourself
+        </strong></i></font><br>
+      </p>
+    </marquee>
+    <img class="imx" src="{% static 'AFJ/i1.jpg' %}">
+  </div>
+  <br><br>
+  <div class="container text-center">
+        <div class="row">                 
+          {% for i in data %}
+            <div class="col my-4 mx-4">  
+                  <div class="card" style="width: 18rem; height: 100%">
+                    <img src="/media/{{i.thumbnail}}" class="card-img-top" alt="...">
+                    <div class="card-body">
+                      <h5 class="card-title"><a href="/inner/{{i.id}}" style="color: purple">{{i.title}}</a></h5>
+                      <p class="card-text" align="justify">{{i.shortDesc}}</p>
+                      <a href="{{i.link}}" class="btn btn-primary" style="border-radius: 15px">Apply from here</a>
+                    </div>
+                  </div>
+            </div>    
+        {% endfor %}
+        </div>
+      </div> 
+{% endblock %}
